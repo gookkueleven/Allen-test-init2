@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20161012 11:04:06.899" generator="Robot 3.0 (Python 2.7.12 on win32)">
+<suite source="C:\Users\ratchasit.amo\Allen-test-init2\Allen-test-init2\test-init2.txt" id="s1" name="Test-Init2">
+<test id="s1-t1" name="GetRequest">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>test-init-2-api</arg>
+<arg>http://localhost:8080</arg>
+</arguments>
+<msg timestamp="20161012 11:04:07.304" level="INFO">Creating Session using : alias=test-init-2-api, url=http://localhost:8080, headers={},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20161012 11:04:07.305" starttime="20161012 11:04:07.303"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the</doc>
+<arguments>
+<arg>test-init-2-api</arg>
+<arg>http://localhost:8080</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20161012 11:04:07.315" level="INFO">Starting new HTTP connection (1): localhost</msg>
+<msg timestamp="20161012 11:04:07.348" level="INFO">Get Request using : alias=test-init-2-api, uri=http://localhost:8080, headers=None </msg>
+<msg timestamp="20161012 11:04:07.349" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20161012 11:04:07.349" starttime="20161012 11:04:07.306"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>200</arg>
+<arg>${response.status_code}</arg>
+</arguments>
+<msg timestamp="20161012 11:04:07.350" level="INFO">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'int'&gt;</msg>
+<status status="PASS" endtime="20161012 11:04:07.350" starttime="20161012 11:04:07.349"></status>
+</kw>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>http://localhost:8080</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20161012 11:04:07.351" level="INFO">Opening browser 'chrome' to base url 'http://localhost:8080'</msg>
+<status status="PASS" endtime="20161012 11:04:14.669" starttime="20161012 11:04:07.351"></status>
+</kw>
+<kw name="Page Should Contain" library="Selenium2Library">
+<doc>Verifies that current page contains `text`.</doc>
+<arguments>
+<arg>Hello, world</arg>
+</arguments>
+<msg timestamp="20161012 11:04:14.753" level="INFO">Current page contains text 'Hello, world'.</msg>
+<status status="PASS" endtime="20161012 11:04:14.754" starttime="20161012 11:04:14.671"></status>
+</kw>
+<kw name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20161012 11:04:17.951" starttime="20161012 11:04:14.755"></status>
+</kw>
+<status status="PASS" endtime="20161012 11:04:17.952" critical="yes" starttime="20161012 11:04:07.301"></status>
+</test>
+<test id="s1-t2" name="GetRequestParam">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>test-init-2-api</arg>
+<arg>http://localhost:8080</arg>
+</arguments>
+<msg timestamp="20161012 11:04:17.963" level="INFO">Creating Session using : alias=test-init-2-api, url=http://localhost:8080, headers={},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20161012 11:04:17.965" starttime="20161012 11:04:17.963"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>Gookku</arg>
+</arguments>
+<assign>
+<var>${name}</var>
+</assign>
+<msg timestamp="20161012 11:04:17.967" level="INFO">${name} = Gookku</msg>
+<status status="PASS" endtime="20161012 11:04:17.967" starttime="20161012 11:04:17.966"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>11</arg>
+</arguments>
+<assign>
+<var>${last}</var>
+</assign>
+<msg timestamp="20161012 11:04:17.970" level="INFO">${last} = 11</msg>
+<status status="PASS" endtime="20161012 11:04:17.970" starttime="20161012 11:04:17.969"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>SEPARATOR=</arg>
+<arg>${name}</arg>
+<arg>${last}</arg>
+</arguments>
+<assign>
+<var>${cat}</var>
+</assign>
+<msg timestamp="20161012 11:04:17.973" level="INFO">${cat} = Gookku11</msg>
+<status status="PASS" endtime="20161012 11:04:17.973" starttime="20161012 11:04:17.971"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the</doc>
+<arguments>
+<arg>test-init-2-api</arg>
+<arg>http://localhost:8080/</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20161012 11:04:17.979" level="INFO">Starting new HTTP connection (1): localhost</msg>
+<msg timestamp="20161012 11:04:17.989" level="INFO">Get Request using : alias=test-init-2-api, uri=http://localhost:8080/, headers=None </msg>
+<msg timestamp="20161012 11:04:17.990" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20161012 11:04:17.990" starttime="20161012 11:04:17.975"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${response}</arg>
+</arguments>
+<msg timestamp="20161012 11:04:17.995" level="INFO">&lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20161012 11:04:17.995" starttime="20161012 11:04:17.994"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>200</arg>
+<arg>${response.status_code}</arg>
+</arguments>
+<msg timestamp="20161012 11:04:17.998" level="INFO">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'int'&gt;</msg>
+<status status="PASS" endtime="20161012 11:04:17.998" starttime="20161012 11:04:17.997"></status>
+</kw>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>http://localhost:8080/${name}/${last}</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20161012 11:04:18.001" level="INFO">Opening browser 'chrome' to base url 'http://localhost:8080/Gookku/11'</msg>
+<status status="PASS" endtime="20161012 11:04:25.168" starttime="20161012 11:04:18.000"></status>
+</kw>
+<kw name="Page Should Contain" library="Selenium2Library">
+<doc>Verifies that current page contains `text`.</doc>
+<arguments>
+<arg>Hello, ${cat}</arg>
+</arguments>
+<msg timestamp="20161012 11:04:25.245" level="INFO">Current page contains text 'Hello, Gookku11'.</msg>
+<status status="PASS" endtime="20161012 11:04:25.245" starttime="20161012 11:04:25.170"></status>
+</kw>
+<status status="PASS" endtime="20161012 11:04:25.247" critical="yes" starttime="20161012 11:04:17.960"></status>
+</test>
+<status status="PASS" endtime="20161012 11:04:25.254" starttime="20161012 11:04:06.907"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="2">Critical Tests</stat>
+<stat fail="0" pass="2">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Test-Init2" pass="2">Test-Init2</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

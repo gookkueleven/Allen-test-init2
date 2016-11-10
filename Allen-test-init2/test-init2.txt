@@ -1,0 +1,23 @@
+*** Settings ***
+Library           RequestsLibrary
+Library           Selenium2Library
+
+*** Test Cases ***
+GetRequest
+    Create Session    test-init-2-api    http://localhost:8080
+    ${response}    Get Request    test-init-2-api    http://localhost:8080
+    Should Be Equal As Integers    200    ${response.status_code}
+    Open Browser    http://localhost:8080    chrome
+    Page Should Contain    Hello, world
+    Close Browser
+
+GetRequestParam
+    Create Session    test-init-2-api    http://localhost:8080
+    ${name}    Set Variable    Gookku
+    ${last}    Set Variable    11
+    ${cat}    Catenate    SEPARATOR=    ${name}    ${last}
+    ${response}    Get Request    test-init-2-api    http://localhost:8080/
+    Log    ${response}
+    Should Be Equal As Integers    200    ${response.status_code}
+    Open Browser    http://localhost:8080/${name}/${last}    chrome
+    Page Should Contain    Hello, ${cat}

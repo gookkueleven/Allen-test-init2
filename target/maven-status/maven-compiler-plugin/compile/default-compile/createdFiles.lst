@@ -1,2 +1,6 @@
-kooknaja\controller\HelloWorld.class
+kooknaja\Quote.class
 kooknaja\Application.class
+kooknaja\Value.class
+kooknaja\CallAPI.class
+kooknaja\Gook.class
+kooknaja\HelloWorld.class
